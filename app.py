@@ -12,14 +12,12 @@ app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# ✅ Gemini 1.5 Flash
 llm = ChatGoogleGenerativeAI(
     model="models/gemini-1.5-flash-latest",
     temperature=0.2,
-    google_api_key="AIzaSyA7YdIMRXPIlHfPSsn3vN3ZkiffBQhhEy0"  # Replace with your actual key
+    google_api_key="ABC"  # Replace with your actual key
 )
 
-# ✅ HuggingFace BGE embeddings
 embedding_model = HuggingFaceEmbeddings(
     model_name="BAAI/bge-large-en-v1.5"
 )
@@ -61,19 +59,14 @@ def upload_file():
     splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
     docs = splitter.split_documents(documents)
 
-    # ✅ In-memory vector DB (not persisted)
-    # ✅ Force new isolated in-memory Chroma collection
     vectordb = Chroma.from_documents(
     documents=docs,
     embedding=embedding_model,
-    collection_name=str(uuid.uuid4())  # 💡 unique ID avoids reuse
+    collection_name=str(uuid.uuid4()) 
 )
-
-
 
     qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=vectordb.as_retriever())
 
-    # ✅ Replace previous chain
     app.qa_chain = qa_chain
 
     return jsonify({"message": "File uploaded and processed!"})
