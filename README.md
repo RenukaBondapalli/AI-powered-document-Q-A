@@ -13,7 +13,7 @@ Upload any document and ask natural language questions to extract instant answer
 
 ### 🎥 Live Demo Video
 
-Watch the demo video here: [https://www.youtube.com/watch?v=YOUR_VIDEO_ID]([https://www.youtube.com/watch?v=YOUR_VIDEO_ID](https://drive.google.com/file/d/1wkoR6cOAd2hJ1iNxeSCa_GyWoLhndMZl/view?usp=drivesdk)
+[👉 Click here to watch the demo](https://drive.google.com/file/d/1wkoR6cOAd2hJ1iNxeSCa_GyWoLhndMZl/view?usp=drivesdk)
 
 ---
 
