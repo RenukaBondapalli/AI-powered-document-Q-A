@@ -1,0 +1,9 @@
+Flask
+langchain
+google-generativeai
+chromadb
+huggingface_hub
+PyPDF2
+beautifulsoup4
+unstructured
+sentence-transformers
